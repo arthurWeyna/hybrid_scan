@@ -1,0 +1,7 @@
+Building DAG of jobs...
+InputFunctionException in line 243 of /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile:
+KeyError: 'SRR5437981'
+Wildcards:
+PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data
+ID=SRR5437981
+EXT=.fastp.megahit.

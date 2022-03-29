@@ -1,0 +1,196 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	8	contamfilter_run
+	8	vcf_refalt_plot
+	17
+
+[Mon Mar 28 11:40:19 2022]
+rule contamfilter_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.vcf
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1.vcf
+    jobid: 9
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.phyluce.bwa.fastp.freebayes.filter, ALTPROB=0.1
+
+
+[Mon Mar 28 11:40:19 2022]
+rule contamfilter_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.vcf
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.vcf
+    jobid: 12
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.filter, ALTPROB=0.05
+
+
+[Mon Mar 28 11:40:19 2022]
+rule contamfilter_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.vcf
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1.vcf
+    jobid: 10
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.filter, ALTPROB=0.1
+
+
+[Mon Mar 28 11:40:19 2022]
+rule contamfilter_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.vcf
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.vcf
+    jobid: 14
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.phyluce.bwa.fastp.freebayes.filter, ALTPROB=0.05
+
+[Mon Mar 28 11:40:20 2022]
+Finished job 9.
+1 of 17 steps (6%) done
+
+[Mon Mar 28 11:40:20 2022]
+rule vcf_refalt_plot:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1.vcf
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1.refalt.txt, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1.refalt.png
+    jobid: 1
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1
+
+[Mon Mar 28 11:40:20 2022]
+Finished job 14.
+2 of 17 steps (12%) done
+
+[Mon Mar 28 11:40:20 2022]
+rule vcf_refalt_plot:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.vcf
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.refalt.txt, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.refalt.png
+    jobid: 6
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05
+
+[Mon Mar 28 11:40:20 2022]
+Finished job 10.
+3 of 17 steps (18%) done
+
+[Mon Mar 28 11:40:20 2022]
+rule vcf_refalt_plot:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1.vcf
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1.refalt.txt, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1.refalt.png
+    jobid: 2
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1
+
+[Mon Mar 28 11:40:20 2022]
+Finished job 12.
+4 of 17 steps (24%) done
+
+[Mon Mar 28 11:40:20 2022]
+rule vcf_refalt_plot:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.vcf
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.refalt.txt, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.refalt.png
+    jobid: 4
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05
+
+[Mon Mar 28 11:40:21 2022]
+Finished job 1.
+5 of 17 steps (29%) done
+
+[Mon Mar 28 11:40:21 2022]
+rule contamfilter_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.vcf
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1.vcf
+    jobid: 11
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.phyluce.bwa.fastp.freebayes.filter, ALTPROB=0.1
+
+[Mon Mar 28 11:40:21 2022]
+Finished job 6.
+6 of 17 steps (35%) done
+
+[Mon Mar 28 11:40:21 2022]
+rule contamfilter_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.vcf
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.vcf
+    jobid: 13
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.phyluce.bwa.fastp.freebayes.filter, ALTPROB=0.05
+
+[Mon Mar 28 11:40:21 2022]
+Finished job 13.
+7 of 17 steps (41%) done
+
+[Mon Mar 28 11:40:21 2022]
+rule vcf_refalt_plot:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.vcf
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.refalt.txt, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.refalt.png
+    jobid: 5
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05
+
+[Mon Mar 28 11:40:21 2022]
+Finished job 11.
+8 of 17 steps (47%) done
+
+[Mon Mar 28 11:40:21 2022]
+rule vcf_refalt_plot:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1.vcf
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1.refalt.txt, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1.refalt.png
+    jobid: 3
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1
+
+[Mon Mar 28 11:40:21 2022]
+Finished job 4.
+9 of 17 steps (53%) done
+
+[Mon Mar 28 11:40:21 2022]
+rule contamfilter_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.vcf
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1.vcf
+    jobid: 16
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit.phyluce.bwa.fastp.freebayes.filter, ALTPROB=0.1
+
+[Mon Mar 28 11:40:21 2022]
+Finished job 2.
+10 of 17 steps (59%) done
+
+[Mon Mar 28 11:40:21 2022]
+rule contamfilter_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.vcf
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.vcf
+    jobid: 15
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit.phyluce.bwa.fastp.freebayes.filter, ALTPROB=0.05
+
+[Mon Mar 28 11:40:22 2022]
+Finished job 16.
+11 of 17 steps (65%) done
+
+[Mon Mar 28 11:40:22 2022]
+rule vcf_refalt_plot:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1.vcf
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1.refalt.txt, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1.refalt.png
+    jobid: 8
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1
+
+[Mon Mar 28 11:40:22 2022]
+Finished job 15.
+12 of 17 steps (71%) done
+
+[Mon Mar 28 11:40:22 2022]
+rule vcf_refalt_plot:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.vcf
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.refalt.txt, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.refalt.png
+    jobid: 7
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05
+
+[Mon Mar 28 11:40:22 2022]
+Finished job 5.
+13 of 17 steps (76%) done
+[Mon Mar 28 11:40:22 2022]
+Finished job 3.
+14 of 17 steps (82%) done
+[Mon Mar 28 11:40:23 2022]
+Finished job 7.
+15 of 17 steps (88%) done
+[Mon Mar 28 11:40:23 2022]
+Finished job 8.
+16 of 17 steps (94%) done
+
+[Mon Mar 28 11:40:23 2022]
+localrule all:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.refalt.png, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1.refalt.png, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.refalt.png, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1.refalt.png, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.refalt.png, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1.refalt.png, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.refalt.png, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.1.refalt.png
+    jobid: 0
+
+[Mon Mar 28 11:40:23 2022]
+Finished job 0.
+17 of 17 steps (100%) done
+Complete log: /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/.snakemake/log/2022-03-28T114019.338112.snakemake.log

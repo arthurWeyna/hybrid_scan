@@ -1,0 +1,52 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	3	divergence_estimations_gather
+	4
+
+[Thu Mar 24 16:05:51 2022]
+rule divergence_estimations_gather:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.divestim.txt
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/test.fastp.megahit.phyluce.bwa.fastp.angsd.divestim.gathered.txt
+    jobid: 1
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, GRP=test, EXT=.fastp.megahit.phyluce.bwa.fastp.angsd.divestim.
+
+
+[Thu Mar 24 16:05:51 2022]
+rule divergence_estimations_gather:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.het0.05.divestim.txt
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/test.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.het0.05.divestim.gathered.txt
+    jobid: 3
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, GRP=test, EXT=.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.het0.05.divestim.
+
+
+[Thu Mar 24 16:05:51 2022]
+rule divergence_estimations_gather:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.het0.01.divestim.txt
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/test.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.het0.01.divestim.gathered.txt
+    jobid: 2
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, GRP=test, EXT=.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.het0.01.divestim.
+
+[Thu Mar 24 16:05:51 2022]
+Finished job 1.
+1 of 4 steps (25%) done
+[Thu Mar 24 16:05:51 2022]
+Finished job 3.
+2 of 4 steps (50%) done
+[Thu Mar 24 16:05:51 2022]
+Finished job 2.
+3 of 4 steps (75%) done
+
+[Thu Mar 24 16:05:51 2022]
+localrule all:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/test.fastp.megahit.phyluce.bwa.fastp.angsd.divestim.gathered.txt, /home/arthur/Bureau/postdocs/isem/hybscan/data/test.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.het0.01.divestim.gathered.txt, /home/arthur/Bureau/postdocs/isem/hybscan/data/test.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.het0.05.divestim.gathered.txt
+    jobid: 0
+
+[Thu Mar 24 16:05:51 2022]
+Finished job 0.
+4 of 4 steps (100%) done
+Complete log: /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/.snakemake/log/2022-03-24T160551.044284.snakemake.log

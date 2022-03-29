@@ -1,0 +1,6 @@
+Building DAG of jobs...
+MissingInputException in line 68 of /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile:
+Missing input files for rule all:
+/home/arthur/Bureau/postdocs/isem/hybscan/data/allbusco.fastp.megahit.busco.bwa.fastp.freebayes.filter.contamfilter0.05.het.divestim.gathered.txt
+/home/arthur/Bureau/postdocs/isem/hybscan/data/allbusco.fastp.megahit.busco.bwa.fastp.freebayes.filter.contamfilter0.2.het.divestim.gathered.txt
+/home/arthur/Bureau/postdocs/isem/hybscan/data/allbusco.fastp.megahit.busco.bwa.fastp.angsd.divestim.gathered.txt

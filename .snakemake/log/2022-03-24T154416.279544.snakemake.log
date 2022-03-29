@@ -1,0 +1,3 @@
+NameError in line 45 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+name 'np' is not defined
+  File "/home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile", line 45, in <module>

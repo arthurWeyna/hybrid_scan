@@ -1,0 +1,30 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	freebayes_individual_run
+	2
+
+[Wed Mar 23 18:22:21 2022]
+rule freebayes_individual_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.bam, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.vcf
+    jobid: 1
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR5437981, EXT=.fastp.megahit.phyluce., EXT2=.fastp.
+
+[Wed Mar 23 18:22:57 2022]
+Finished job 1.
+1 of 2 steps (50%) done
+
+[Wed Mar 23 18:22:57 2022]
+localrule all:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.counts.txt, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.vcf
+    jobid: 0
+
+[Wed Mar 23 18:22:57 2022]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/.snakemake/log/2022-03-23T182221.341506.snakemake.log

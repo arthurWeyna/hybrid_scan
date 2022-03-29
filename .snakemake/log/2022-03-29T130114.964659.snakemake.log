@@ -1,0 +1,2 @@
+SyntaxError in line 232 of /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile:
+EOF in multi-line statement (Snakefile, line 232)

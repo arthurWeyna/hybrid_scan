@@ -1,0 +1,40 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	angsd_run
+	2
+
+[Wed Mar 23 18:00:48 2022]
+rule angsd_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.bam, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.bam.bai, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta.fai
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.bamlist, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.saf.idx, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.saf.pos.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.saf.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.sfs, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.thetas.idx, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.thetas.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.thetas.idx.pestPG, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.arg, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.txt
+    jobid: 1
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR5437981, EXT=.fastp.megahit.phyluce., EXT2=.fastp.
+
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.bamlist.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.saf.idx.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.saf.pos.gz.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.saf.gz.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.sfs.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.thetas.idx.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.thetas.gz.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.thetas.idx.pestPG.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.arg.
+[Wed Mar 23 18:00:57 2022]
+Finished job 1.
+1 of 2 steps (50%) done
+
+[Wed Mar 23 18:00:57 2022]
+localrule all:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.txt
+    jobid: 0
+
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.txt.
+[Wed Mar 23 18:00:57 2022]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/.snakemake/log/2022-03-23T180048.718875.snakemake.log

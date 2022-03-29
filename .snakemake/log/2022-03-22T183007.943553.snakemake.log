@@ -1,0 +1,20 @@
+Building DAG of jobs...
+Job counts:
+	count	jobs
+	1	all
+	1	fastp_pe_run
+	2	fastp_pese_run
+	1	fastp_se_run
+	3	megahit_pese_run
+	1	megahit_se_run
+	9
+
+[Tue Mar 22 18:30:07 2022]
+rule fastp_se_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastq.gz
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.json, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.html
+    jobid: 7
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR2184170, EXT=.
+
+RuleException in line 45 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+NameError: The name 'FASTP_OPT' is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}

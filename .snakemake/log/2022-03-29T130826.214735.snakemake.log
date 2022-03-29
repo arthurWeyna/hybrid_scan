@@ -1,0 +1,22 @@
+Building DAG of jobs...
+Job counts:
+	count	jobs
+	1	all
+	1	busco_database_download
+	1	busco_run
+	3
+
+[Tue Mar 29 13:08:26 2022]
+rule busco_database_download:
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/busco_database/lineages/hymenoptera_odb10
+    jobid: 3
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/busco_database, DB=hymenoptera
+
+
+[Tue Mar 29 13:08:26 2022]
+rule busco_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/busco_database/lineages/hymenoptera_odb10
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.log
+    jobid: 1
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR5437981, EXT=.fastp.megahit.
+

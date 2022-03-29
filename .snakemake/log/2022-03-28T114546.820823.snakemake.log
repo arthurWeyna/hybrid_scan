@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 323 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+Missing input files for rule divergence_estimations_run:
+/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.counts.txt

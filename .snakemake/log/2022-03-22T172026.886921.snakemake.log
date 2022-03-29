@@ -1,0 +1,20 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	4	fastp_run
+	4	megahit_run
+	9
+
+[Tue Mar 22 17:20:26 2022]
+rule fastp_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168_1.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168_2.fastq.gz
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168_1.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168_2.fastp.fastq.gz
+    jobid: 8
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR2184168
+
+Terminating processes on user request, this might take some time.
+Complete log: /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/.snakemake/log/2022-03-22T172026.886921.snakemake.log

@@ -1,0 +1,4 @@
+IndexError in line 6 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+list index out of range
+  File "/home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile", line 6, in <module>
+  File "/home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile", line 6, in <dictcomp>

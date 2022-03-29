@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 306 of /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile:
+Missing input files for rule stan_model_train:
+/home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/tools/divergence_model.stan

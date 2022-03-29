@@ -1,0 +1,7 @@
+Building DAG of jobs...
+InputFunctionException in line 32 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+TypeError: unsupported operand type(s) for +: 'builtin_function_or_method' and 'str'
+Wildcards:
+PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data
+ID=SRR5437981
+EXT=.fastp.

@@ -1,0 +1,45 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	bwa_indexing
+	1	bwa_pe_run
+	3
+
+[Wed Mar 23 16:42:45 2022]
+rule bwa_indexing:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta.amb, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta.ann, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta.pac, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta.bwt.2bit.64, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta.0123
+    jobid: 2
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta
+
+[Wed Mar 23 16:42:46 2022]
+Finished job 2.
+1 of 3 steps (33%) done
+
+[Wed Mar 23 16:42:46 2022]
+rule bwa_pe_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta.amb, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta.ann, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta.pac, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta.bwt.2bit.64, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta.0123, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981_1.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981_2.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.se.bam, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.pe.bam, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.bam
+    jobid: 1
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR5437981, EXT=.fastp.megahit.phyluce., EXT2=.fastp.
+    threads: 4
+
+[Wed Mar 23 16:42:47 2022]
+Error in rule bwa_pe_run:
+    jobid: 1
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.se.bam, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.pe.bam, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.bam
+
+RuleException:
+CalledProcessError in line 169 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+Command ' set -euo pipefail;  bwa-mem2 -t 4 /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.fastq.gz | samtools view -bu -@ 4 | samtools sort -m 1G -@ 4 > /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.se.bam;  bwa-mem2 -t 4 /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981_1.fastp.fastq.gz /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981_2.fastp.fastq.gz | samtools view -bu -@ 4 | samtools sort -m 1G -@ 4 > /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.pe.bam; samtools merge -@ 4 -o /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.bam /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.se.bam /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.pe.bam; ' returned non-zero exit status 1.
+  File "/home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile", line 169, in __rule_bwa_pe_run
+  File "/home/arthur/bin/miniconda/envs/hybscan_env/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Removing output files of failed job bwa_pe_run since they might be corrupted:
+/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.se.bam
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/.snakemake/log/2022-03-23T164245.264562.snakemake.log

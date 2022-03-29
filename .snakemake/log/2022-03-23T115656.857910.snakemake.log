@@ -1,0 +1,52 @@
+Building DAG of jobs...
+Job counts:
+	count	jobs
+	1	all
+	1	fastp_pe_run
+	2	fastp_pese_run
+	1	fastp_se_run
+	3	megahit_pese_run
+	1	megahit_se_run
+	9
+
+[Wed Mar 23 11:56:56 2022]
+rule fastp_pese_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168_1.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168_2.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastq.gz
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168_1.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168_2.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.pe.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.se.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.pe.json, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.se.json, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.pe.html, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.se.html
+    jobid: 8
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR2184168, EXT=.
+
+
+[Wed Mar 23 11:56:56 2022]
+rule fastp_pe_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981_1.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981_2.fastq.gz
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981_1.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981_2.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.json, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.html
+    jobid: 7
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR5437981, EXT=.
+
+
+[Wed Mar 23 11:56:56 2022]
+rule fastp_pese_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169_1.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169_2.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastq.gz
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169_1.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169_2.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.pe.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.se.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.pe.json, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.se.json, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.pe.html, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.se.html
+    jobid: 6
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR2184169, EXT=.
+
+
+[Wed Mar 23 11:56:56 2022]
+rule fastp_se_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastq.gz
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.json, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.html
+    jobid: 5
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR2184170, EXT=.
+
+
+[Wed Mar 23 11:56:56 2022]
+rule megahit_se_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.fastq.gz
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.fasta
+    jobid: 1
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR2184170, EXT=.fastp.
+
+RuleException in line 94 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+'OutputFiles' object has no attribute 'log'

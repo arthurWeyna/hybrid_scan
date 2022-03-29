@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 6 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+Missing input files for rule all:
+test.txt

@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 138 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+Missing input files for rule bwa_indexing:
+/home/arthur/Bureau/postdocs/isem/hybscan/data_assembly.fastp.megahit.phyluce..fasta

@@ -1,0 +1,7 @@
+Building DAG of jobs...
+InputFunctionException in line 148 of /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile:
+NameError: name 'UCEPROBES' is not defined
+Wildcards:
+PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data
+ID=SRR2184169
+EXT=.fastp.megahit.

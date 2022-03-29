@@ -1,0 +1,32 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	angsd_run
+	1	bwa_indexing
+	1	bwa_pese_run
+	3	divergence_estimations_run
+	1	fastp_pese_run
+	1	freebayes_individual_run
+	2	het_sites_count_run
+	1	megahit_pese_run
+	1	phyluce_run
+	1	samtools_bam_index
+	1	samtools_fasta_index
+	1	stan_model_train
+	1	vcftools_filter_run
+	17
+
+[Thu Mar 24 19:53:24 2022]
+rule fastp_pese_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170_1.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170_2.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastq.gz
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170_1.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170_2.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.pe.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.se.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.pe.json, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.se.json, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.pe.html, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.se.html
+    jobid: 14
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR2184170, EXT=.
+    threads: 4
+
+RuleException in line 91 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+NameError: The name 'if ($5 >= 0) print $9' is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}

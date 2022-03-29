@@ -1,0 +1,32 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	busco_run
+	2
+
+[Tue Mar 29 15:56:48 2022]
+rule busco_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/busco_database/lineages/hymenoptera_odb10
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.log
+    jobid: 1
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR5437981, EXT=.fastp.megahit.
+    threads: 4
+
+Terminating processes on user request, this might take some time.
+[Tue Mar 29 15:58:31 2022]
+Error in rule busco_run:
+    jobid: 1
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.log
+
+RuleException:
+CalledProcessError in line 260 of /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile:
+Command ' set -euo pipefail;  busco -f --download_path /home/arthur/Bureau/postdocs/isem/hybscan/data -i /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.fasta --out_path /home/arthur/Bureau/postdocs/isem/hybscan/data -o SRR5437981.fastp.megahit.busco -l /home/arthur/Bureau/postdocs/isem/hybscan/data/busco_database/lineages/hymenoptera_odb10 -c 4 --augustus --augustus_species camponotus_floridanus -m genome;cp /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco/logs/busco.log /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.log; awk 'FNR==1{file=FILENAME; sub(".fna", "", file)}; FNR!=1{seq[file]=seq[file]""$0}; END{for(f in seq){print ">busco_"f; print seq[f]}}' /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco/run_hymenoptera_odb10/busco_sequences/single_copy_busco_sequences/*fna > /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.fasta; ' returned non-zero exit status 1.
+  File "/home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile", line 260, in __rule_busco_run
+  File "/home/arthur/bin/miniconda/envs/hybscan_env/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Removing output files of failed job busco_run since they might be corrupted:
+/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco
+Cancelling snakemake on user request.

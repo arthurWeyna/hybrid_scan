@@ -1,0 +1,29 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	megahit_pese_run
+	2
+
+[Wed Mar 23 13:04:29 2022]
+rule megahit_pese_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981_1.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981_2.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.fastq.gz
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.log
+    jobid: 1
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR5437981, EXT=.fastp.
+
+Terminating processes on user request, this might take some time.
+[Wed Mar 23 13:04:31 2022]
+Error in rule megahit_pese_run:
+    jobid: 1
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.log
+
+RuleException:
+CalledProcessError in line 114 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+Command ' set -euo pipefail;  rm -rf /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit;megahit -t 1 -1 /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981_1.fastp.fastq.gz -2 /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981_2.fastp.fastq.gz -r /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.fastq.gz -o /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit --k-min 31 --k-max 101 --k-step 10;mv /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit/log /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.log; awk '!/>/{print}; />/{cnt++; print ">contig"cnt}' /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit/final.contigs.fa > /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.fasta; ' returned non-zero exit status 2.
+  File "/home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile", line 114, in __rule_megahit_pese_run
+  File "/home/arthur/bin/miniconda/envs/hybscan_env/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Complete log: /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/.snakemake/log/2022-03-23T130429.140481.snakemake.log

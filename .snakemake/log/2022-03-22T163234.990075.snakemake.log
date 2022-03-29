@@ -1,0 +1,3 @@
+ValueError in line 36 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+Single '}' encountered in format string
+  File "/home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile", line 36, in <module>

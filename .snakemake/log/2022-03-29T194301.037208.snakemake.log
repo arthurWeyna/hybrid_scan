@@ -1,0 +1,109 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	2	angsd_run
+	1	busco_run
+	2	bwa_indexing
+	2	bwa_pese_run
+	4	contamfilter_run
+	3	divergence_estimations_busco_gather
+	8	divergence_estimations_run
+	3	divergence_estimations_uce_gather
+	2	freebayes_individual_run
+	6	het_sites_count_run
+	1	phyluce_run
+	2	samtools_bam_index
+	2	samtools_fasta_index
+	7	vcf_refalt_plot
+	2	vcftools_filter_run
+	48
+
+[Tue Mar 29 19:43:01 2022]
+rule vcf_refalt_plot:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5406035.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.2.vcf
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5406035.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.2.refalt.txt, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5406035.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.2.refalt.png
+    jobid: 12
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5406035.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.2
+
+
+[Tue Mar 29 19:43:01 2022]
+rule het_sites_count_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5406035.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.2.vcf
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5406035.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.2.het.counts.txt
+    jobid: 37
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5406035.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.2
+
+
+[Tue Mar 29 19:43:01 2022]
+rule busco_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/busco_database/lineages/hymenoptera_odb10
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.log
+    jobid: 47
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR5437981, EXT=.fastp.megahit.
+    threads: 4
+
+
+[Tue Mar 29 19:43:01 2022]
+rule het_sites_count_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5406035.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.vcf
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5406035.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.het.counts.txt
+    jobid: 39
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5406035.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05
+
+
+[Tue Mar 29 19:43:01 2022]
+rule phyluce_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/tools/uce_probes/formicidae.fasta
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.log
+    jobid: 51
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR5437981, EXT=.fastp.megahit.
+
+[Tue Mar 29 19:43:01 2022]
+Error in rule het_sites_count_run:
+    jobid: 37
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5406035.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.2.het.counts.txt
+
+RuleException:
+CalledProcessError in line 421 of /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile:
+Command ' set -euo pipefail;  python /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/tools/scripts/vcf_het_sites_count.py /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5406035.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.2.vcf | sort -k 1 > /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5406035.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.2.het.counts.txt; ' returned non-zero exit status 1.
+  File "/home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile", line 421, in __rule_het_sites_count_run
+  File "/home/arthur/bin/miniconda/envs/hybscan_env/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Removing output files of failed job het_sites_count_run since they might be corrupted:
+/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5406035.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.2.het.counts.txt
+[Tue Mar 29 19:43:01 2022]
+Error in rule het_sites_count_run:
+    jobid: 39
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5406035.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.het.counts.txt
+
+RuleException:
+CalledProcessError in line 421 of /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile:
+Command ' set -euo pipefail;  python /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/tools/scripts/vcf_het_sites_count.py /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5406035.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.vcf | sort -k 1 > /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5406035.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.het.counts.txt; ' returned non-zero exit status 1.
+  File "/home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile", line 421, in __rule_het_sites_count_run
+  File "/home/arthur/bin/miniconda/envs/hybscan_env/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Removing output files of failed job het_sites_count_run since they might be corrupted:
+/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5406035.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter0.05.het.counts.txt
+[Tue Mar 29 19:43:03 2022]
+Finished job 12.
+1 of 48 steps (2%) done
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.
+[Tue Mar 29 19:43:15 2022]
+Finished job 51.
+2 of 48 steps (4%) done
+Terminating processes on user request, this might take some time.
+[Tue Mar 29 19:43:51 2022]
+Error in rule busco_run:
+    jobid: 47
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.log
+
+RuleException:
+CalledProcessError in line 258 of /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile:
+Command ' set -euo pipefail;  busco -f --download_path /home/arthur/Bureau/postdocs/isem/hybscan/data -i /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.fasta --out_path /home/arthur/Bureau/postdocs/isem/hybscan/data -o SRR5437981.fastp.megahit.busco -l /home/arthur/Bureau/postdocs/isem/hybscan/data/busco_database/lineages/hymenoptera_odb10 -c 4 --augustus --augustus_species camponotus_floridanus -m genome;cp /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco/logs/busco.log /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.log; awk 'FNR==1{file=FILENAME; sub(".fna", "", file); sub("^.*\/", "", file)}; FNR!=1{seq[file]=seq[file]""$0}; END{PROCINFO["sorted_in"]="@ind_str_asc"; for(f in seq){print ">busco_"f; print seq[f]}}' /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco/run_hymenoptera_odb10/busco_sequences/single_copy_busco_sequences/*fna > /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.fasta; ' returned non-zero exit status 1.
+  File "/home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile", line 258, in __rule_busco_run
+  File "/home/arthur/bin/miniconda/envs/hybscan_env/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Removing output files of failed job busco_run since they might be corrupted:
+/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco
+Complete log: /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/.snakemake/log/2022-03-29T194301.037208.snakemake.log

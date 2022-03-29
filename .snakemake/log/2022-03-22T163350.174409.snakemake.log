@@ -1,0 +1,7 @@
+Building DAG of jobs...
+InputFunctionException in line 37 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+WildcardError: No values given for wildcard 'PATH'.
+Wildcards:
+PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data
+ID=SRR2184170
+EXT=.fastp.

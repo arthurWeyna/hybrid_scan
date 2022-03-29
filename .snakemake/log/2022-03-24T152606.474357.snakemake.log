@@ -1,0 +1,58 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	3	divergence_estimations_run
+	1	freebayes_individual_run
+	2	het_sites_count_run
+	1	stan_model_train
+	1	vcftools_filter_run
+	9
+
+[Thu Mar 24 15:26:06 2022]
+rule freebayes_individual_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.bam, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta.fai
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.freebayes.vcf
+    jobid: 15
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR5437981, EXT=.fastp.megahit.phyluce., EXT2=.fastp.
+
+
+[Thu Mar 24 15:26:06 2022]
+rule stan_model_train:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/tools/divergence_model.stan
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/tools/divergence_model.rds
+    jobid: 5
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/pipeline/tools/divergence_model
+
+[Thu Mar 24 15:26:38 2022]
+Finished job 5.
+1 of 9 steps (11%) done
+
+[Thu Mar 24 15:26:38 2022]
+rule divergence_estimations_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/tools/divergence_model.rds, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.counts.txt
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.divestim.txt, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.divposterior.txt
+    jobid: 1
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd
+    threads: 4
+
+[Thu Mar 24 15:26:38 2022]
+Error in rule divergence_estimations_run:
+    jobid: 1
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.divestim.txt, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.divposterior.txt
+
+RuleException:
+CalledProcessError in line 297 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+Command ' set -euo pipefail;  Rscript stan_divergence_estimation.R /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.counts.txt /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.divestim.txt /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.bwa.fastp.angsd.divposterior.txt /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/tools/divergence_model.rds 2 1000 10000 4; ' returned non-zero exit status 2.
+  File "/home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile", line 297, in __rule_divergence_estimations_run
+  File "/home/arthur/bin/miniconda/envs/hybscan_env/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.phyluce.fasta.fai.
+[Thu Mar 24 15:26:42 2022]
+Finished job 15.
+2 of 9 steps (22%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/.snakemake/log/2022-03-24T152606.474357.snakemake.log

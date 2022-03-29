@@ -1,0 +1,54 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	angsd_run
+	3	divergence_estimations_busco_gather
+	3	divergence_estimations_run
+	8
+
+[Tue Mar 29 19:22:02 2022]
+rule divergence_estimations_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/tools/stan/divergence_model.rds, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.freebayes.filter.contamfilter0.2.het.counts.txt
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.freebayes.filter.contamfilter0.2.het.divestim.txt, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.freebayes.filter.contamfilter0.2.het.divposterior.txt
+    jobid: 21
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.freebayes.filter.contamfilter0.2.het
+    threads: 2
+
+
+[Tue Mar 29 19:22:02 2022]
+rule angsd_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.bam, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.bam.bai, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.fasta
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.angsd.bamlist, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.angsd.saf.idx, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.angsd.saf.pos.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.angsd.saf.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.angsd.sfs, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.angsd.thetas.idx, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.angsd.thetas.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.angsd.thetas.idx.pestPG, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.angsd.arg, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.angsd.stats.txt, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.angsd.counts.txt
+    jobid: 41
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR5437981, EXT=.fastp.megahit.busco., EXT2=.fastp.
+
+[Tue Mar 29 19:22:02 2022]
+Error in rule divergence_estimations_run:
+    jobid: 21
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.freebayes.filter.contamfilter0.2.het.divestim.txt, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.freebayes.filter.contamfilter0.2.het.divposterior.txt
+
+RuleException:
+CalledProcessError in line 445 of /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile:
+Command ' set -euo pipefail;  Rscript /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/tools/scripts/stan_divergence_estimation.R /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.freebayes.filter.contamfilter0.2.het.counts.txt /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.freebayes.filter.contamfilter0.2.het.divestim.txt /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.freebayes.filter.contamfilter0.2.het.divposterior.txt /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/tools/stan/divergence_model.rds 2 1000 10000 2; ' returned non-zero exit status 1.
+  File "/home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile", line 445, in __rule_divergence_estimations_run
+  File "/home/arthur/bin/miniconda/envs/hybscan_env/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.bam.bai.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.angsd.bamlist.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.angsd.saf.idx.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.angsd.saf.pos.gz.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.angsd.saf.gz.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.angsd.sfs.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.angsd.thetas.idx.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.angsd.thetas.gz.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.angsd.thetas.idx.pestPG.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.busco.bwa.fastp.angsd.arg.
+[Tue Mar 29 19:22:05 2022]
+Finished job 41.
+1 of 8 steps (12%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/.snakemake/log/2022-03-29T192201.755521.snakemake.log

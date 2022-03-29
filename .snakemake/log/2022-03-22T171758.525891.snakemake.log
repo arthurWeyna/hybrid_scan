@@ -1,0 +1,3 @@
+TypeError in line 36 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+'function' object is not iterable
+  File "/home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile", line 36, in <module>

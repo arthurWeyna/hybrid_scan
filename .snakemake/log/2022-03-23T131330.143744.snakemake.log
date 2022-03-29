@@ -1,0 +1,115 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	2	fastp_pese_run
+	1	fastp_se_run
+	2	megahit_pese_run
+	1	megahit_se_run
+	7
+
+[Wed Mar 23 13:13:30 2022]
+rule fastp_pese_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168_1.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168_2.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastq.gz
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168_1.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168_2.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.pe.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.se.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.pe.json, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.se.json, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.pe.html, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.se.html
+    jobid: 5
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR2184168, EXT=.
+    threads: 4
+
+
+[Wed Mar 23 13:13:30 2022]
+rule fastp_pese_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169_1.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169_2.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastq.gz
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169_1.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169_2.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.pe.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.se.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.pe.json, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.se.json, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.pe.html, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.se.html
+    jobid: 6
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR2184169, EXT=.
+    threads: 4
+
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.pe.fastq.gz.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.se.fastq.gz.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.pe.json.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.se.json.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.pe.html.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.se.html.
+[Wed Mar 23 13:13:43 2022]
+Finished job 6.
+1 of 7 steps (14%) done
+
+[Wed Mar 23 13:13:43 2022]
+rule megahit_pese_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169_1.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169_2.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.fastq.gz
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.log, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit
+    jobid: 2
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR2184169, EXT=.fastp.
+
+
+[Wed Mar 23 13:13:43 2022]
+rule fastp_se_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastq.gz
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.json, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.html
+    jobid: 8
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR2184170, EXT=.
+
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.json.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.html.
+[Wed Mar 23 13:13:44 2022]
+Finished job 8.
+2 of 7 steps (29%) done
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.pe.fastq.gz.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.se.fastq.gz.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.pe.json.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.se.json.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.pe.html.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.se.html.
+[Wed Mar 23 13:13:47 2022]
+Finished job 5.
+3 of 7 steps (43%) done
+
+[Wed Mar 23 13:13:47 2022]
+rule megahit_se_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.fastq.gz
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.log, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit
+    jobid: 4
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR2184170, EXT=.fastp.
+    threads: 4
+
+
+[Wed Mar 23 13:13:47 2022]
+rule megahit_pese_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168_1.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168_2.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.fastq.gz
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit.log, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit
+    jobid: 1
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR2184168, EXT=.fastp.
+
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.fastq.gz.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.
+[Wed Mar 23 13:13:48 2022]
+Finished job 4.
+4 of 7 steps (57%) done
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169_2.fastp.fastq.gz.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169_1.fastp.fastq.gz.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.fastq.gz.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.
+[Wed Mar 23 13:16:26 2022]
+Finished job 2.
+5 of 7 steps (71%) done
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.fastq.gz.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168_2.fastp.fastq.gz.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168_1.fastp.fastq.gz.
+Removing temporary output file /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit.
+[Wed Mar 23 13:19:59 2022]
+Finished job 1.
+6 of 7 steps (86%) done
+
+[Wed Mar 23 13:19:59 2022]
+localrule all:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184168.fastp.megahit.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184169.fastp.megahit.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.megahit.fasta
+    jobid: 0
+
+[Wed Mar 23 13:19:59 2022]
+Finished job 0.
+7 of 7 steps (100%) done
+Complete log: /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/.snakemake/log/2022-03-23T131330.143744.snakemake.log

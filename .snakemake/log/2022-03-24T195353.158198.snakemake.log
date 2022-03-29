@@ -1,0 +1,46 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	angsd_run
+	1	bwa_indexing
+	1	bwa_pese_run
+	3	divergence_estimations_run
+	1	fastp_pese_run
+	1	freebayes_individual_run
+	2	het_sites_count_run
+	1	megahit_pese_run
+	1	phyluce_run
+	1	samtools_bam_index
+	1	samtools_fasta_index
+	1	stan_model_train
+	1	vcftools_filter_run
+	17
+
+[Thu Mar 24 19:53:53 2022]
+rule fastp_pese_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170_1.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170_2.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastq.gz
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170_1.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170_2.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.pe.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.se.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.pe.json, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.se.json, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.pe.html, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.se.html
+    jobid: 13
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR2184170, EXT=.
+    threads: 4
+
+[Thu Mar 24 19:54:03 2022]
+Error in rule fastp_pese_run:
+    jobid: 13
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170_1.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170_2.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.pe.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.se.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.pe.json, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.se.json, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.pe.html, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.se.html
+
+RuleException:
+CalledProcessError in line 112 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+Command ' set -euo pipefail;  fastp -j /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.pe.json -h /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.pe.html -q 20 -u 70 -n 40 -l 40 -w 1 --detect_adapter_for_pe -c -i /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170_1.fastq.gz -I /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170_2.fastq.gz -o /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170_1.fastp.fastq.gz -O /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170_2.fastp.fastq.gz --unpaired1 /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.pe.fastq.gz --unpaired2 /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.pe.fastq.gz -w 4;fastp -j /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.se.json -h /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.se.html -q 20 -u 70 -n 40 -l 40 -w 1 -i /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastq.gz -o /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.se.fastq.gz -w 4;nonemptysingle=`ls -l /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.se.fastq.gz /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.pe.fastq.gz | awk '{if ($5 >= 0) print $9}' | tr '
+' ' '`;echo $nonemptysingle | xargs zcat | pigz -p4 > /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.fastq.gz ' returned non-zero exit status 123.
+  File "/home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile", line 112, in __rule_fastp_pese_run
+  File "/home/arthur/bin/miniconda/envs/hybscan_env/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Removing output files of failed job fastp_pese_run since they might be corrupted:
+/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170_1.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170_2.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.pe.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.se.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.pe.json, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.se.json, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.pe.html, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastp.se.html
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/.snakemake/log/2022-03-24T195353.158198.snakemake.log

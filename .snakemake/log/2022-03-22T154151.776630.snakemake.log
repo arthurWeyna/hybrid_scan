@@ -1,0 +1,4 @@
+AttributeError in line 14 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+'str' object has no attribute 'ID'
+  File "/home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile", line 23, in <module>
+  File "/home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile", line 14, in get_input_files

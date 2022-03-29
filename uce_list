@@ -1,0 +1,7 @@
+##Two colums seperated by a whitespace
+##id probes
+#id must match fastq.gz files in data
+#probes must match fasta files in tools/probes (add your own probe files there if necessary)
+#Any column besides the first two will be disregarded and can be used for notes as below
+SRR5437981 formicidae UCEcapture worker Messor barbarus
+SRR5406035 hymenoptera UCEcapture Sphecius hogardii

@@ -1,0 +1,16 @@
+Building DAG of jobs...
+Job counts:
+	count	jobs
+	1	all
+	1	megahit_pese_run
+	2
+
+[Wed Mar 23 13:05:51 2022]
+rule megahit_pese_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981_1.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981_2.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.fastq.gz
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.log, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit
+    jobid: 1
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR5437981, EXT=.fastp.
+
+RuleException in line 100 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+'Params' object has no attribute 'nam'

@@ -1,0 +1,20 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	busco_database_download
+	1	busco_run
+	3
+
+[Tue Mar 29 13:12:06 2022]
+rule busco_database_download:
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/busco_database/lineages/hymenoptera_odb10
+    jobid: 2
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data/busco_database, DB=hymenoptera
+
+Terminating processes on user request, this might take some time.
+Waiting at most 5 seconds for missing files.
+Cancelling snakemake on user request.

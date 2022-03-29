@@ -1,0 +1,32 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	megahit_pese_run
+	2
+
+[Wed Mar 23 12:04:27 2022]
+rule megahit_pese_run:
+    input: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981_1.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981_2.fastp.fastq.gz, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.fastq.gz
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.log
+    jobid: 1
+    wildcards: PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data, ID=SRR5437981, EXT=.fastp.
+
+[Wed Mar 23 12:41:17 2022]
+Error in rule megahit_pese_run:
+    jobid: 1
+    output: /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.log
+
+RuleException:
+CalledProcessError in line 126 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+Command ' set -euo pipefail;  rm -rf /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit;megahit -t 1 -1 /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981_1.fastp.fastq.gz -2 /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981_2.fastp.fastq.gz -r /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.fastq.gz -o /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit --k-min 31 --k-max 101 --k-step 10;mv /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit/log /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.log;mv /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit/final.contigs.fa /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.fasta;rm /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit/final.contigs.fa; ' returned non-zero exit status 1.
+  File "/home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile", line 126, in __rule_megahit_pese_run
+  File "/home/arthur/bin/miniconda/envs/hybscan_env/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Removing output files of failed job megahit_pese_run since they might be corrupted:
+/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.fasta, /home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437981.fastp.megahit.log
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/.snakemake/log/2022-03-23T120427.740946.snakemake.log

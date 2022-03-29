@@ -1,0 +1,7 @@
+Building DAG of jobs...
+InputFunctionException in line 141 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+KeyError: 'test'
+Wildcards:
+PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data
+ID=test
+EXT=.fastp.megahit.

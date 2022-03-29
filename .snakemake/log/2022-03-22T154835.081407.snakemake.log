@@ -1,0 +1,6 @@
+Building DAG of jobs...
+MissingInputException in line 33 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+Missing input files for rule megahit_run:
+SRR2184168_2
+SRR2184168
+SRR2184168_1

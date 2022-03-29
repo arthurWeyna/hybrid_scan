@@ -1,0 +1,3 @@
+TypeError in line 36 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
+get_files() missing 1 required positional argument: 'id'
+  File "/home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile", line 36, in <module>
