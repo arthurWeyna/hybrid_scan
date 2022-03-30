@@ -10,7 +10,7 @@ This Snakemake pipeline is meant to run hybrid scans (as described in [this pape
 6. optional filter for contamination (possible only with the snp-calling variant)
 7. divergence estimation (custom R files; see article)
 
-The pipeline is designed so that the user may provide any intermediate files (e.g., assemblies) and run only later steps, in the Snakemake fashion. The user should be familiar with this program. 
+The pipeline is designed so that the user may provide any intermediate files (e.g., bam files) and run only later steps, in the Snakemake fashion. The user should be familiar with this program. 
 
 # Quick setup
 
@@ -66,9 +66,6 @@ Some rules have a particular behavior regarding the extension they produce.
 1. Read alignment with bwa-mem2 will produce an extension of the form `.bwa + fastq_ext` where fastq_ext is the extension of the fastq file(s) that was aligned. This is so one can align any type of reads (e.g. filtered or not). For instance, in the example above, bwa was used to aligned filtered reads (mysample\_*.fastp.fastq.gz) to UCE sequences stored in `mysample.fastp.megahit.phyluce.fasta`.
 2. The contamination filter step adds its main parameter (see Contamination filter section) to its output's extension. This is to allow the user to easily run contamination filters with different values and compare. 
 
-## Gathering scan results
-
-For a given sample, the scan results should have the form `mysample.some.clever.extension.divestim.txt`. If you want to gather results for many samples analyzed in the same way just require `alluce.some.clever.extension.divestim.gathered.txt` (for UCEs) or `allbusco.some.clever.extension.divestim.gathered.txt`(for busco)
 
 ## Input files
 
@@ -107,11 +104,30 @@ Then, if the second probability is larger than the first, the SNP is discarded.
 
 The parameter e, which represents the expected frequency of alternative alleles at true homozygous sites (given error and contamination) cannot be set objectively and has to be user-defined. The larger the value of e, the harder the filter. It is perhaps best to test different values and to assess the sensibility of divergence estimations to this parameter. 
 
+The following plot is an example of the effect of the filter with values 0.05 and 0.2. Such plots can be obtained using the pipeline (see rule all in Snakefile).
+
 ![Filter](tools/images/filter_plot.png)
 
 ## Divergence estimation
 
-Divergence estimations are carried out by fitting the model described in the article, using r-stan and custom R scripts. For each analysis, the output of this estimation is a file with the following fields:
+Divergence estimations are carried out by fitting the model described in the article, using r-stan and custom R scripts. For each analysis, the output of this estimation is given in two files.
+
+1. `mysample.some.extension.divposterior.txt` gives the actual parameter values sampled across all iterations (excuding warm-up) and all chains. It can be used to reconstruct or manipulate posterior distributions precisely.
+2. `mysample.some.extension.divestim.txt` a summary of the results, with the following fields:
+    * file: Path to the input file
+    * nb_loc: The number of contigs used for estimations (number of lines in input file)
+    * He\_mean: Mean heterozygosity across contigs
+    * He\_var: variance of heterozygosity across contigs
+    * stan\_\*\*\*\_mean: mean posterior value of parameter \*\*\* (gamma, theta or gamma/theta ratio)
+    * stan\_\*\*\*\_se\_mean: standard error on mean posterior value
+    * stan\_\*\*\*\_sd: standard deviation in posterior distribution of parameter \*\*\* (gamma, theta or gamma/theta ratio)
+    * stan\_\*\*\*\_q%: q% quantile in posterior distribution of parameter \*\*\* (gamma, theta or gamma/theta ratio)
+    * stan\_\*\*\*\_n\_eff: effective sample size across chains, see stan documentation.
+    * stan\_\*\*\*\_Rhat: R-hat convergence diagnostic, see stan documentation
+
+## Gathering results
+
+If you want to gather result summaries for many samples analyzed in the same way (with the same total extension) just require `alluce.some.clever.extension.divestim.gathered.txt` (for UCEs) or `allbusco.some.clever.extension.divestim.gathered.txt`(for busco)
 
 
 

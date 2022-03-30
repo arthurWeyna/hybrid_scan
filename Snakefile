@@ -26,7 +26,7 @@ BWA_THREADS=4
 BWA_OPT="-k 19"
 FREEBAYES_OPT="--min-alternate-count 1 -z 0.05"
 VCFTOOLS_FILTER_OPT="--remove-indels --minQ 30 --minDP 5"
-CONTAM_FILTER_ALT_PROB="0.05 0.2"
+CONTAM_FILTER_ALT_PROB="0.05 0.2" #give a whitespace-seperated list of parameter (e) values to run
 STAN_THREADS=2
 STAN_OPT="2 1000 10000" #1: chains number #2:warmup iterations #3: total iteration number per chain
 

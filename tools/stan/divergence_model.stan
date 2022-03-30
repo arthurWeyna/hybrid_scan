@@ -17,3 +17,7 @@ for (n in 1:N) {
 	target += log(gamma_q(k[n]+1,l[n]*gamma+(gamma/theta)));
 }
 }
+generated quantities {
+  real<lower=0> ratio;
+  ratio = gamma/theta;
+}

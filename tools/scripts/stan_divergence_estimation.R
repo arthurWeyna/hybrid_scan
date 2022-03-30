@@ -13,9 +13,7 @@ stan_div_estim <- function(model, k, l, chains = 4, warmup = 1000, iter = 2000, 
 	     refresh = refresh# no progress shown
 	)
     	postdist <- do.call("rbind", lapply(fit@sim$samples[1:chains], function(x) as.data.frame(x[c("theta", "gamma", "lp__")])[(warmup+1):iter,]))
-	
     	summ <- summary(fit)$summary
-
 	nb_loc = length(k)
 	He_mean <- mean(k/l, na.rm=T)
 	He_var <- var(k/l, na.rm=T)
@@ -44,6 +42,7 @@ args <- commandArgs(trailingOnly=TRUE)
 #read input files
 dataf <- read.table(args[1], sep=" ", header=F)
 model <- readRDS(args[4])
+
 
 #run estimation
 rez <- stan_div_estim(model=model, k=dataf[,ncol(dataf)], l=dataf[,ncol(dataf)-1], chains = as.numeric(args[5]), warmup = as.numeric(args[6]), iter = as.numeric(args[7]), cores = as.numeric(args[8]), refresh = 0)
