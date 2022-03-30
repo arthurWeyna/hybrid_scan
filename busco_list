@@ -4,7 +4,6 @@
 #database must match be one available in busco (busco --list-datasets)
 #augustus species must be a species available in database (see busco userguide for info about augustus)
 #Any column besides the first three will be disregarded and can be used for notes as below
-#SRR1325015 hymenoptera_odb10 camponotus_floridanus transcriptome worker Mbarbarus
-#SRR4292931 hymenoptera_odb10 camponotus_floridanus transcriptome male Mbarbarus
-#SRR4292935 hymenoptera_odb10 camponotus_floridanus transcriptome queen Mbarbarus
-SRR5437981 hymenoptera_odb10 camponotus_floridanus transcriptome queen Mbarbarus
+SRR1325015 hymenoptera_odb10 camponotus_floridanus transcriptome worker Mbarbarus
+SRR4292931 hymenoptera_odb10 camponotus_floridanus transcriptome male Mbarbarus
+SRR4292935 hymenoptera_odb10 camponotus_floridanus transcriptome queen Mbarbarus
