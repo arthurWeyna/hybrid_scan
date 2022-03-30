@@ -50,10 +50,15 @@ tools/config/mamba_setup.sh path/to/file.yaml
 
 Snakemake works by requiring target (output) files. As is usual, required targets (file paths) are described in the rule 'all' within the Snakefile. This Snakefile here constructs target file paths for each id present as a key in one of two python dictionaries: UCEDIC (ids to analyze with phyluce) and BUSCODIC (ids to analyse with busco). In turn, these dictionary can be constructed manually (for small runs; see top of the Snakefile) or automatically from description files (useful for large runs with many ids).
 
-Dictionaries are used to associate parameters to each id. For instance, phyluce needs to know which probes set to use for each id. This info is stored in the UCEDIC dictionary, which can be constructed from a description file such as uce\_list. In the same spirit, busco needs to know what database and what augustus species to use, and this information can be given in a file such as busco\_list. The paths to both description files are stored in variables UCETARGETS and BUSCOTARGETS in the Snakefile.
+Dictionaries are used to associate parameters to each id. For instance, phyluce needs to know which probes set to use for each id. This info is stored in the  UCEDIC dictionary, which can be constructed from a description file such as uce\_list. In the same spirit, busco needs to know what database and what augustus species to use, and this information can be given in a file such as busco\_list. The paths to both description files are stored in variables UCETARGETS and BUSCOTARGETS in the Snakefile.
 
-All in all, this setup should allow the user to control what individuals are analyzed (and how) by just editing uce\_list and busco\_list. One can also use other files by editing the path to description files (UCETARGETS and BUSCOTARGETS) in the Snakefile. To shut off entire parts of the pipeline, the user may either provide empty description files or modify the rule 'all' directly (e.g., commenting out some targets). 
+This setup should allow the user to control what individuals are analyzed (and how) by just editing uce\_list and busco\_list. One can also use other files by editing the path to description files (UCETARGETS and BUSCOTARGETS) in the Snakefile. To shut off entire parts of the pipeline, the user may either provide empty description files or modify the rule 'all' directly (e.g., commenting out some targets). 
 
+## Description files format
+
+The UCE run description file (uce\_list by default) should have two columns and one line per sample. First column gives the sample id. Second column gives the name of the uce probes set to use for UCE identification by phyluce. The name should correspond to a probe set fasta file in tools/uce_probes. A few set a there by default but the user may add its own (e.g. found on [Arbor biosciences site](https://arborbiosci.com/genomics/targeted-sequencing/mybaits/mybaits-expert/mybaits-expert-uce/))
+
+The BUSCO run description file (busco\_list by default) should have three columns and one line per sample. First column gives the sample id. Second column gives the name of the busco database used for gene blasting (which will be dowloaded automatically the first time; see busco doc). The third column gives the species used by augustus (within busco; see doc) for gene prediction. The pipeline currently does not allow to use metaeuk instead of augustus, because metaeuk does not output nucleotide sequences directly. 
 
 ## Filepath format
 
