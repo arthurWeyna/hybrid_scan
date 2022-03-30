@@ -280,7 +280,7 @@ rule bwa_se_run:
 		single="{PATH}/{ID}{EXT2}fastq.gz",
 		cont="{PATH}/{ID}{EXT}fasta",
 	output:
-		bam="{PATH}/{ID}{EXT}bwa{EXT2}bam",
+		bam=temp("{PATH}/{ID}{EXT}bwa{EXT2}bam"),
 	threads: 
 		int(BWA_THREADS)
 	shell:
@@ -295,7 +295,7 @@ rule bwa_pe_run:
 		reverse="{PATH}/{ID}_2{EXT2}fastq.gz",
 		cont="{PATH}/{ID}{EXT}fasta",
 	output:
-		bam="{PATH}/{ID}{EXT}bwa{EXT2}bam",
+		bam=temp("{PATH}/{ID}{EXT}bwa{EXT2}bam"),
 	threads: 
 		int(BWA_THREADS)
 	shell:
@@ -313,7 +313,7 @@ rule bwa_pese_run:
 	output:
 		bamse=temp("{PATH}/{ID}{EXT}bwa{EXT2}se.bam"),
 		bampe=temp("{PATH}/{ID}{EXT}bwa{EXT2}pe.bam"),
-		bam="{PATH}/{ID}{EXT}bwa{EXT2}bam",
+		bam=temp("{PATH}/{ID}{EXT}bwa{EXT2}bam"),
 	threads: 
 		int(BWA_THREADS)
 	shell:
