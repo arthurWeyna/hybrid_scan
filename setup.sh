@@ -15,7 +15,7 @@ then
 datadir=`realpath $input`
 fi
 mkdir -p $datadir
-awk -v FS="=" -v OFS="=" -v datad=$datadir -v runf=$main/run_file -v toold=$main/tools -v q="\"" '/^DATADIR=/{$2=q""datad""q}; /^RUNFILE=/{$2=q""runf""q}; /^TOOLDIR=/{$2=q""toold""q}; {print}' $main/Snakefile > Snakefile2
+awk -v FS="=" -v OFS="=" -v datad=$datadir -v toold=$main/tools -v ucef=$main/uce_list -v buscof=$main/busco_list -v q="\"" '/^DATADIR=/{$2=q""datad""q}; /^TOOLDIR=/{$2=q""toold""q}; /^UCETARGETS=/{$2=q""ucef""q}; /^BUSCOTARGETS=/{$2=q""buscof""q}; {print}' $main/Snakefile > Snakefile2
 
 mv Snakefile2 Snakefile
 
