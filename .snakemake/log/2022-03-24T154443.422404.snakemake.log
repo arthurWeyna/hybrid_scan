@@ -1,3 +1,0 @@
-ModuleNotFoundError in line 3 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
-No module named 'np'
-  File "/home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile", line 3, in <module>

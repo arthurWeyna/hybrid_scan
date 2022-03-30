@@ -1,3 +1,0 @@
-TypeError in line 35 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
-get_input_files() missing 1 required positional argument: 'wildcards'
-  File "/home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile", line 35, in <module>

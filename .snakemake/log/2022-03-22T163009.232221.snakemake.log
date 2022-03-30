@@ -1,7 +1,0 @@
-Building DAG of jobs...
-InputFunctionException in line 40 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
-NameError: name 'get_input_files' is not defined
-Wildcards:
-PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data
-ID=SRR2184169
-EXT=.fastp.

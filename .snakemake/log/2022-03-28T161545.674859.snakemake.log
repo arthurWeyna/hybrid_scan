@@ -1,3 +1,0 @@
-NameError in line 29 of /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile:
-name 'SRR2184169' is not defined
-  File "/home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile", line 29, in <module>

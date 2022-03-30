@@ -1,3 +1,0 @@
-TypeError in line 271 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
-unsupported operand type(s) for -: 'str' and 'str'
-  File "/home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile", line 271, in <module>

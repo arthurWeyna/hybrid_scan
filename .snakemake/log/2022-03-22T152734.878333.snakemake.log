@@ -1,2 +1,0 @@
-SyntaxError in line 29 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
-No rule keywords allowed after run/shell/script/wrapper/cwl in rule megahit_run. (Snakefile, line 29)

@@ -1,3 +1,0 @@
-NameError in line 313 of /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile:
-name 'TOOLDIR' is not defined
-  File "/home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile", line 313, in <module>

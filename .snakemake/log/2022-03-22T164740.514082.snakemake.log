@@ -1,6 +1,0 @@
-Building DAG of jobs...
-InputFunctionException in line 34 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
-AttributeError: 'Wildcards' object has no attribute 'EXT'
-Wildcards:
-PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data
-ID=SRR2184168

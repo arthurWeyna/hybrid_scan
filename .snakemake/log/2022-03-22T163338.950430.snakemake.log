@@ -1,5 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 37 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
-Missing input files for rule megahit_run:
-{PATH}/SRR5437981_1.fastp.fastq.gz
-{PATH}/SRR5437981_2.fastp.fastq.gz

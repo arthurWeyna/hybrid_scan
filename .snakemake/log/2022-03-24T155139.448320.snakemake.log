@@ -1,7 +1,0 @@
-Building DAG of jobs...
-InputFunctionException in line 313 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
-KeyError: 'SRR2184170'
-Wildcards:
-PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data
-GRP=SRR2184170
-EXT=.fastp.megahit.phyluce.bwa.fastp.angsd.divestim.

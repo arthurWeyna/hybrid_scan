@@ -1,3 +1,0 @@
-CreateRuleException in line 459 of /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile:
-The name divergence_estimations_gather is already used by another rule
-  File "/home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile", line 459, in <module>

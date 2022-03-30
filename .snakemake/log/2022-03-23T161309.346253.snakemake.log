@@ -1,3 +1,0 @@
-NameError in line 164 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
-name 'BWA_THREADS' is not defined
-  File "/home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile", line 164, in <module>

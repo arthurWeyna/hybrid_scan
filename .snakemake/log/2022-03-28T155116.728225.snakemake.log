@@ -1,3 +1,0 @@
-FileNotFoundError in line 25 of /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile:
-[Errno 2] No such file or directory: '/home/arthur/Bureau/postdocs/isem/hybscan/data/run_list'
-  File "/home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile", line 25, in <module>

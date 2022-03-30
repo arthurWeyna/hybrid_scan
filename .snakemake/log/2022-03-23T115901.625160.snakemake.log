@@ -1,3 +1,0 @@
-NameError in line 42 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
-name 'lisy' is not defined
-  File "/home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile", line 42, in <module>

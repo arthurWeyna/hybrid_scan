@@ -1,6 +1,0 @@
-Building DAG of jobs...
-InputFunctionException in line 34 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
-NameError: name 'sort' is not defined
-Wildcards:
-PATH=/home/arthur/Bureau/postdocs/isem/hybscan/data
-ID=SRR2184169

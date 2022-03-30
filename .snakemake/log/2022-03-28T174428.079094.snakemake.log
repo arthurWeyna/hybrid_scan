@@ -1,6 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 105 of /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile:
-Missing input files for rule fastp_pese_run:
-/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437978.fastq.gz
-/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437978_1.fastq.gz
-/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR5437978_2.fastq.gz

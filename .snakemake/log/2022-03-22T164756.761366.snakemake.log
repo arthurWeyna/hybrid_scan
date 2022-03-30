@@ -1,4 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 34 of /home/arthur/Bureau/postdocs/isem/hybscan/pipeline/Snakefile:
-Missing input files for rule fastp_run:
-plop/home/arthur/Bureau/postdocs/isem/hybscan/data/SRR2184170.fastq.gz

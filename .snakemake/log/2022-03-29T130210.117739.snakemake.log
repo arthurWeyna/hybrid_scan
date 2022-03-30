@@ -1,4 +1,0 @@
-IndexError in line 42 of /home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile:
-list index out of range
-  File "/home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile", line 42, in <module>
-  File "/home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/Snakefile", line 42, in <dictcomp>
