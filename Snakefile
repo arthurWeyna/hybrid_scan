@@ -43,7 +43,6 @@ BUSCODIC={"SRR1325015":["hymenoptera_odb10", "camponotus_floridanus"], "SRR42929
 BUSCODIC={l.strip().split(" ")[0]:[l.strip().split(" ")[1], l.strip().split(" ")[2]] for l in open(BUSCOTARGETS, "r") if not re.search("^#", l)}
 
 
-
 ##CONSTRAINTS
 wildcard_constraints:
 	ID="[^/\.]*",
