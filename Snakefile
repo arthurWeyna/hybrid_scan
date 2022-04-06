@@ -2,7 +2,6 @@
 import os 
 import numpy as np
 import re
-import fnmatch
 
 
 ##PARAMETERS (feel free to edit)
@@ -40,7 +39,7 @@ UCEDIC={l.strip().split(" ")[0]:l.strip().split(" ")[1] for l in open(UCETARGETS
 ##construct dic with database/augustus species to use for each id (BUSCO runs)
 #Manually 
 BUSCODIC={"SRR1325015":["hymenoptera_odb10", "camponotus_floridanus"], "SRR4292931":["hymenoptera_odb10", "camponotus_floridanus"], "SRR4292935":["hymenoptera_odb10", "camponotus_floridanus"]}
-#Or from BUSCOTARGETS, a file with two columns: id probes
+#Or from BUSCOTARGETS, a file with three columns: id database species
 BUSCODIC={l.strip().split(" ")[0]:[l.strip().split(" ")[1], l.strip().split(" ")[2]] for l in open(BUSCOTARGETS, "r") if not re.search("^#", l)}
 
 
@@ -48,7 +47,6 @@ BUSCODIC={l.strip().split(" ")[0]:[l.strip().split(" ")[1], l.strip().split(" ")
 ##CONSTRAINTS
 wildcard_constraints:
 	ID="[^/\.]*",
-	GRP="[^/\.]*",
 	EXT="[^/]*",
 	EXT2="[^/]*",
 	NB="[0-9]*",
@@ -90,8 +88,6 @@ rule all:
 		##after
 		expand("{PATH}/{ID}.fastp.megahit.busco.bwa.fastp.freebayes.filter.contamfilter{PROB}.refalt.png", PATH=DATADIR, ID=list(BUSCODIC.keys()), PROB=CONTAM_FILTER_ALT_PROB.split(" ")),
 
-rule contam_filter_check_plots: 
-	input: 
 
 
 #######################################################
