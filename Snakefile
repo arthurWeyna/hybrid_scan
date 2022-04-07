@@ -279,7 +279,7 @@ rule bwa_se_run:
 	threads: 
 		int(BWA_THREADS)
 	shell:
-		"bwa-mem2 mem {BWA_OPT} -t {threads} {input.cont} {input.single} | samtools view -bu -@ {threads} | samtools sort -m 1G -@ {threads} > {output.bam}; """
+		"bwa-mem2 mem {BWA_OPT} -t {threads} {input.cont} {input.single} | samtools view -bu -F 260 -@ {threads} | samtools sort -m 1G -@ {threads} > {output.bam}; """
 
 #######################################################
 #align paired-end reads using bwa 
@@ -294,7 +294,7 @@ rule bwa_pe_run:
 	threads: 
 		int(BWA_THREADS)
 	shell:
-		" bwa-mem2 mem {BWA_OPT} -t {threads} {input.cont} {input.forward} {input.reverse} | samtools view -bu -@ {threads} | samtools sort -m 1G -@ {threads} > {output.bam}; """
+		" bwa-mem2 mem {BWA_OPT} -t {threads} {input.cont} {input.forward} {input.reverse} | samtools view -bu -F 260 -@ {threads} | samtools sort -m 1G -@ {threads} > {output.bam}; """
 
 #######################################################
 #align reads using bwa when there is both se and pe data
@@ -312,8 +312,8 @@ rule bwa_pese_run:
 	threads: 
 		int(BWA_THREADS)
 	shell:
-		"bwa-mem2 mem {BWA_OPT} -t {threads} {input.cont} {input.single} | samtools view -bu -@ {threads} | samtools sort -m 1G -@ {threads} > {output.bamse}; """
-		" bwa-mem2 mem {BWA_OPT} -t {threads} {input.cont} {input.forward} {input.reverse} | samtools view -bu -@ {threads} | samtools sort -m 1G -@ {threads} > {output.bampe}; """
+		"bwa-mem2 mem {BWA_OPT} -t {threads} {input.cont} {input.single} | samtools view -bu -F 260 -@ {threads} | samtools sort -m 1G -@ {threads} > {output.bamse}; """
+		" bwa-mem2 mem {BWA_OPT} -t {threads} {input.cont} {input.forward} {input.reverse} | samtools view -bu -F 260 -@ {threads} | samtools sort -m 1G -@ {threads} > {output.bampe}; """
 		#merge pe and se alignments
 		"samtools merge -@ {threads} -o {output.bam} {output.bamse} {output.bampe};"
 
