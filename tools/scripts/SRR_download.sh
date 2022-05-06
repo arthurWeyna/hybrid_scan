@@ -2,7 +2,8 @@
 #$1 is a file with ids to download in first column (such as uce_list)
 #$2 is the directory where to dump fastq.gz files
 
-ids=`cut -f1 -d" " $1 | grep -v "#"`
+#ids=`cut -f1 -d" " $1 | grep -v "#"`
+ids="SRR5760503"
 out=$2
 threads=4
 

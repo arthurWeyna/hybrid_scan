@@ -6,13 +6,13 @@ import re
 
 ##PARAMETERS (feel free to edit)
 #Path to directory for data files
-DATADIR="/home/arthur/Bureau/postdocs/isem/hybscan/data"
+DATADIR="/media/bigvol/arthur/hybrid_scan/data"
 #Path to tools directory
-TOOLDIR="/home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/tools"
+TOOLDIR="/media/bigvol/arthur/hybrid_scan/tools"
 #Path to file with ids and probes to use for each id (UCE runs)
-UCETARGETS="/home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/uce_list"
+UCETARGETS="/media/bigvol/arthur/hybrid_scan/uce_list.my"
 #Path to file with ids and database/augustus_species to use for each id (BUSCO runs)
-BUSCOTARGETS="/home/arthur/Bureau/postdocs/isem/hybscan/hybrid_scan/busco_list"
+BUSCOTARGETS="/media/bigvol/arthur/hybrid_scan/busco_list"
 
 
 FASTP_THREADS=4
@@ -78,14 +78,14 @@ rule all:
 		######BUSCO######
 		####hybrid scan results for all ids in BUSCODIC
 		##using ANGSD
-		expand("{PATH}/allbusco.fastp.megahit.busco.bwa.fastp.angsd.divestim.gathered.txt", PATH=DATADIR, ID=list(BUSCODIC.keys())),
+		#expand("{PATH}/allbusco.fastp.megahit.busco.bwa.fastp.angsd.divestim.gathered.txt", PATH=DATADIR, ID=list(BUSCODIC.keys())),
 		##using snp calling and contamination filtering
-		expand("{PATH}/allbusco.fastp.megahit.busco.bwa.fastp.freebayes.filter.contamfilter{PROB}.het.divestim.gathered.txt", PATH=DATADIR, ID=list(BUSCODIC.keys()), PROB=CONTAM_FILTER_ALT_PROB.split(" ")),
+		#expand("{PATH}/allbusco.fastp.megahit.busco.bwa.fastp.freebayes.filter.contamfilter{PROB}.het.divestim.gathered.txt", PATH=DATADIR, ID=list(BUSCODIC.keys()), PROB=CONTAM_FILTER_ALT_PROB.split(" ")),
 		####plots to vizualize the effect of filtering for contamination
 		##before
-		expand("{PATH}/{ID}.fastp.megahit.busco.bwa.fastp.freebayes.filter.refalt.png", PATH=DATADIR, ID=list(BUSCODIC.keys())),
+		#expand("{PATH}/{ID}.fastp.megahit.busco.bwa.fastp.freebayes.filter.refalt.png", PATH=DATADIR, ID=list(BUSCODIC.keys())),
 		##after
-		expand("{PATH}/{ID}.fastp.megahit.busco.bwa.fastp.freebayes.filter.contamfilter{PROB}.refalt.png", PATH=DATADIR, ID=list(BUSCODIC.keys()), PROB=CONTAM_FILTER_ALT_PROB.split(" ")),
+		#expand("{PATH}/{ID}.fastp.megahit.busco.bwa.fastp.freebayes.filter.contamfilter{PROB}.refalt.png", PATH=DATADIR, ID=list(BUSCODIC.keys()), PROB=CONTAM_FILTER_ALT_PROB.split(" ")),
 
 
 
@@ -195,9 +195,15 @@ rule megahit_pese_run:
 		dir=temp(directory("{PATH}/{ID}{EXT}megahit")),
 	threads: int(MEGAHIT_THREADS)
 	shell:
-        	"megahit -t {threads} -1 {input.forward} -2 {input.reverse} -r {input.single} -o {output.dir} {MEGAHIT_OPT};"
+		"""
+        if [ `ls -l {input.single} | awk '{{print $5}}'` -gt 0 ]; then
+            megahit -t {threads} -1 {input.forward} -2 {input.reverse} -r {input.single} -o {output.dir} {MEGAHIT_OPT};
+        else
+            megahit -t {threads} -1 {input.forward} -2 {input.reverse} -o {output.dir} {MEGAHIT_OPT};
+        fi;
+        """
 		"mv {output.dir}/log {output.log};"
-        	""" awk '!/>/{{print}}; />/{{cnt++; print ">contig"cnt}}' {output.dir}/final.contigs.fa > {output.cont}; """
+        """ awk '!/>/{{print}}; />/{{cnt++; print ">contig"cnt}}' {output.dir}/final.contigs.fa > {output.cont}; """
 
 #######################################################
 #run phyluce (uce identification and extraction into fasta) using specified set of probes
@@ -442,22 +448,30 @@ rule divergence_estimations_run:
 #######################################################
 #gather results for all id
 rule divergence_estimations_uce_gather:
-	input:
-		lambda wildcards: expand("{PATH}/{ID}{EXT}txt", PATH=wildcards.PATH, ID=UCEDIC.keys(), EXT=wildcards.EXT)
-	output:
-		"{PATH}/alluce{EXT}gathered.txt",	
-	shell:
-		""" awk 'NR==1{{print}}; FNR!=1{{print}}' {input} > {output}; """
+    input:
+        lambda wildcards: expand("{PATH}/{ID}{EXT}txt", PATH=wildcards.PATH, ID=UCEDIC.keys(), EXT=wildcards.EXT)
+    output:
+        "{PATH}/alluce{EXT}gathered.txt",
+    run:
+        with open(output[0], "w") as out:
+            for n,f in enumerate(input):
+                for m,l in enumerate(open(f, "r")):
+                    if (m == 1) or (n == 1):
+                        out.write(l)
 
 #######################################################
 #gather results for all id
 rule divergence_estimations_busco_gather:
-	input:
-		lambda wildcards: expand("{PATH}/{ID}{EXT}txt", PATH=wildcards.PATH, ID=BUSCODIC.keys(), EXT=wildcards.EXT)
-	output:
-		"{PATH}/allbusco{EXT}gathered.txt",	
-	shell:
-		""" awk 'NR==1{{print}}; FNR!=1{{print}}' {input} > {output}; """
+    input:
+        lambda wildcards: expand("{PATH}/{ID}{EXT}txt", PATH=wildcards.PATH, ID=BUSCODIC.keys(), EXT=wildcards.EXT)
+    output:
+        "{PATH}/allbusco{EXT}gathered.txt",	
+    run:
+        with open(output[0], "w") as out:
+            for n,f in enumerate(input):
+                for m,l in enumerate(open(f, "r")):
+                    if (m == 1) or (n == 1):
+                        out.write(l)
 
 
 #######################################################
@@ -470,6 +484,12 @@ rule vcf_refalt_plot:
 		plot="{PATH}.refalt.png",
 	shell:
 		"python {TOOLDIR}/scripts/vcf_sites_refalt_counts.py {input} > {output.refalt};"
-		"Rscript {TOOLDIR}/scripts/snp_refalt_plot.R {output.refalt};"
+        """
+        if [ `ls -l {output.refalt} | awk '{{print $5}}'` -gt 0 ]; then
+		    Rscript {TOOLDIR}/scripts/snp_refalt_plot.R {output.refalt};
+        else 
+            touch {output.plot};
+        fi
+        """
 
 
