@@ -34,13 +34,13 @@ STAN_OPT="2 1000 10000" #1: chains number #2:warmup iterations #3: total iterati
 #Manually 
 UCEDIC={"SRR5437981":"formicidae", "SRR5406035":"hymenoptera"}
 #Or from UCETARGETS, a file with two columns: id probes
-UCEDIC={l.strip().split(" ")[0]:l.strip().split(" ")[1] for l in open(UCETARGETS, "r") if not re.search("^#", l)}
+#UCEDIC={l.strip().split(" ")[0]:l.strip().split(" ")[1] for l in open(UCETARGETS, "r") if not re.search("^#", l)}
 
 ##construct dic with database/augustus species to use for each id (BUSCO runs)
 #Manually 
 BUSCODIC={"SRR1325015":["hymenoptera_odb10", "camponotus_floridanus"], "SRR4292931":["hymenoptera_odb10", "camponotus_floridanus"], "SRR4292935":["hymenoptera_odb10", "camponotus_floridanus"]}
 #Or from BUSCOTARGETS, a file with three columns: id database species
-BUSCODIC={l.strip().split(" ")[0]:[l.strip().split(" ")[1], l.strip().split(" ")[2]] for l in open(BUSCOTARGETS, "r") if not re.search("^#", l)}
+#BUSCODIC={l.strip().split(" ")[0]:[l.strip().split(" ")[1], l.strip().split(" ")[2]] for l in open(BUSCOTARGETS, "r") if not re.search("^#", l)}
 
 
 ##CONSTRAINTS
@@ -63,29 +63,29 @@ ruleorder:
 #######################################################
 #Require final output. Comment out unwanted output.
 rule all: 
-	input: 
+    input: 
 		######UCE######
 		####hybrid scan results for all ids in UCEDIC
 		##using ANGSD
-		expand("{PATH}/alluce.fastp.megahit.phyluce.bwa.fastp.angsd.divestim.gathered.txt", PATH=DATADIR, ID=list(UCEDIC.keys())),
+        expand("{PATH}/alluce.fastp.megahit.phyluce.bwa.fastp.angsd.divestim.gathered.txt", PATH=DATADIR, ID=list(UCEDIC.keys())),
 		##using snp calling and contamination filtering
-		expand("{PATH}/alluce.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter{PROB}.het.divestim.gathered.txt", PATH=DATADIR, ID=list(UCEDIC.keys()), PROB=CONTAM_FILTER_ALT_PROB.split(" ")),
+        expand("{PATH}/alluce.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter{PROB}.het.divestim.gathered.txt", PATH=DATADIR, ID=list(UCEDIC.keys()), PROB=CONTAM_FILTER_ALT_PROB.split(" ")),
 		####plots to vizualize the effect of filtering for contamination
 		##before
-		expand("{PATH}/{ID}.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.refalt.png", PATH=DATADIR, ID=list(UCEDIC.keys())),
+        expand("{PATH}/{ID}.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.refalt.png", PATH=DATADIR, ID=list(UCEDIC.keys())),
 		##after
-		expand("{PATH}/{ID}.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter{PROB}.refalt.png", PATH=DATADIR, ID=list(UCEDIC.keys()), PROB=CONTAM_FILTER_ALT_PROB.split(" ")),
+        expand("{PATH}/{ID}.fastp.megahit.phyluce.bwa.fastp.freebayes.filter.contamfilter{PROB}.refalt.png", PATH=DATADIR, ID=list(UCEDIC.keys()), PROB=CONTAM_FILTER_ALT_PROB.split(" ")),
 		######BUSCO######
 		####hybrid scan results for all ids in BUSCODIC
 		##using ANGSD
-		#expand("{PATH}/allbusco.fastp.megahit.busco.bwa.fastp.angsd.divestim.gathered.txt", PATH=DATADIR, ID=list(BUSCODIC.keys())),
+        expand("{PATH}/allbusco.fastp.megahit.busco.bwa.fastp.angsd.divestim.gathered.txt", PATH=DATADIR, ID=list(BUSCODIC.keys())),
 		##using snp calling and contamination filtering
-		#expand("{PATH}/allbusco.fastp.megahit.busco.bwa.fastp.freebayes.filter.contamfilter{PROB}.het.divestim.gathered.txt", PATH=DATADIR, ID=list(BUSCODIC.keys()), PROB=CONTAM_FILTER_ALT_PROB.split(" ")),
+        expand("{PATH}/allbusco.fastp.megahit.busco.bwa.fastp.freebayes.filter.contamfilter{PROB}.het.divestim.gathered.txt", PATH=DATADIR, ID=list(BUSCODIC.keys()), PROB=CONTAM_FILTER_ALT_PROB.split(" ")),
 		####plots to vizualize the effect of filtering for contamination
 		##before
-		#expand("{PATH}/{ID}.fastp.megahit.busco.bwa.fastp.freebayes.filter.refalt.png", PATH=DATADIR, ID=list(BUSCODIC.keys())),
+        expand("{PATH}/{ID}.fastp.megahit.busco.bwa.fastp.freebayes.filter.refalt.png", PATH=DATADIR, ID=list(BUSCODIC.keys())),
 		##after
-		#expand("{PATH}/{ID}.fastp.megahit.busco.bwa.fastp.freebayes.filter.contamfilter{PROB}.refalt.png", PATH=DATADIR, ID=list(BUSCODIC.keys()), PROB=CONTAM_FILTER_ALT_PROB.split(" ")),
+        expand("{PATH}/{ID}.fastp.megahit.busco.bwa.fastp.freebayes.filter.contamfilter{PROB}.refalt.png", PATH=DATADIR, ID=list(BUSCODIC.keys()), PROB=CONTAM_FILTER_ALT_PROB.split(" ")),
 
 
 
@@ -424,26 +424,36 @@ rule het_sites_count_run:
 #######################################################
 #compile divergence model for use by stan (should run only once)
 rule stan_model_train:
-	input:
-		"{PATH}.stan"
-	output:
-		"{PATH}.rds"
-	shell:
-		"Rscript {TOOLDIR}/stan/stan_train_model.R {input};"
+    input:
+        "{PATH}.stan",
+    output:
+        "{PATH}.rds"
+    params:
+        env="stan_env"
+    shell:
+        "set +eu;"
+        ". $(conda info --base)/etc/profile.d/conda.sh;"
+        "conda activate {params.env};"
+        "Rscript {TOOLDIR}/stan/stan_train_model.R {input};"
 
 #######################################################
 #estimate divergence using stan
 rule divergence_estimations_run:
-	input:
-		rds=expand("{TOOLS}/stan/divergence_model.rds", TOOLS=TOOLDIR),
-		counts="{PATH}.counts.txt",
-	output:
-		estimates="{PATH}.divestim.txt",
-		posterior="{PATH}.divposterior.txt",
-	threads:
-		int(STAN_THREADS)
-	shell: 
-		"Rscript {TOOLDIR}/scripts/stan_divergence_estimation.R {input.counts} {output.estimates} {output.posterior} {input.rds} {STAN_OPT} {threads};"
+    input:
+        rds=expand("{TOOLS}/stan/divergence_model.rds", TOOLS=TOOLDIR),
+        counts="{PATH}.counts.txt",
+    output:
+        estimates="{PATH}.divestim.txt",
+        posterior="{PATH}.divposterior.txt",
+    threads:
+        int(STAN_THREADS)
+    params:
+        env="stan_env"
+    shell:
+        "set +eu;"
+        ". $(conda info --base)/etc/profile.d/conda.sh;"
+        "conda activate {params.env};"
+        "Rscript {TOOLDIR}/scripts/stan_divergence_estimation.R {input.counts} {output.estimates} {output.posterior} {input.rds} {STAN_OPT} {threads};"
 
 #######################################################
 #gather results for all id
